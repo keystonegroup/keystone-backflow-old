@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keystone Backflow Services</title>
+
+  <meta name="description" content="Certified backflow testing, inspections, and compliance services by Keystone Backflow Services." />
+
+  <style>
+    :root {
+      --accent: #ff8c1a;
+      --bg: #000;
+      --panel: #0b0b0b;
+      --text: #ffffff;
+      --muted: #cfcfcf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero img {
+      max-width: 420px;
+      width: 90%;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* SERVICES */
+    .services {
+      background-color: var(--panel);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 6px;
+    }
+
+    .card h3 {
+      color: var(--accent);
+    }
+
+    /* WHY */
+    .why ul {
+      max-width: 800px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .why li {
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background-color: var(--panel);
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 30px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      background-color: var(--accent);
+      color: #000;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <img src="assets/logo.png" alt="Keystone Backflow Services Logo" />
+      <p>
+        Certified backflow testing and compliance services protecting
+        potable water systems for commercial and residential properties.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Backflow Testing</h3>
+          <p>
+            Annual and initial backflow prevention device testing
+            performed by certified professionals.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Repairs & Maintenance</h3>
+          <p>
+            Diagnosis, repair, and maintenance of backflow assemblies
+            to meet local water authority requirements.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Compliance Reporting</h3>
+          <p>
+            Accurate documentation and submission of test results
+            to municipalities and water districts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="container">
+      <h2>Why Keystone Backflow Services</h2>
+      <ul>
+        <li>Certified and insured backflow technicians</li>
+        <li>Prompt scheduling and reliable service</li>
+        <li>Clear communication and compliance support</li>
+        <li>Focused on safety, accuracy, and accountability</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="container">
+      <h2>Schedule Service</h2>
+      <p>
+        Contact us to schedule backflow testing or to discuss
+        your compliance requirements.
+      </p>
+
+      <a href="mailto:info@keystonebackflowservices.com">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Keystone Backflow Services
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
