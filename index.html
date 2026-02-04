@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Keystone Backflow Services</title>
 
-  <meta name="description"
-    content="Certified backflow testing, inspections, and compliance services by Keystone Backflow Services." />
+  <meta name="description" content="Certified backflow testing, repair, and compliance services by Keystone Backflow Services." />
 
   <style>
     :root {
       --accent: #ff8c1a;
+      --accent-red: #ff3c00;
       --bg: #000;
-      --panel: #0b0b0b;
+      --panel: rgba(10, 10, 10, 0.55);
       --text: #ffffff;
       --muted: #cfcfcf;
     }
@@ -39,9 +38,7 @@
       margin: 0 auto;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       margin-top: 0;
       letter-spacing: 0.5px;
     }
@@ -54,7 +51,9 @@
       color: var(--muted);
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+       ========================= */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -63,10 +62,30 @@
       text-align: center;
 
       background:
-        radial-gradient(circle at center,
+        radial-gradient(
+          circle at center,
           rgba(255, 140, 26, 0.15) 0%,
           rgba(255, 60, 0, 0.08) 25%,
-          rgba(0, 0, 0, 1) 60%);
+          rgba(0, 0, 0, 1) 60%
+        );
+    }
+
+    .hero-glass {
+      padding: 60px 40px;
+      border-radius: 18px;
+      max-width: 720px;
+      width: 92%;
+
+      background: var(--panel);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      box-shadow:
+        0 0 60px rgba(255, 140, 26, 0.25),
+        0 0 120px rgba(255, 60, 0, 0.15);
     }
 
     .hero img {
@@ -75,20 +94,41 @@
       margin-bottom: 40px;
 
       filter:
-        drop-shadow(0 0 25px rgba(255, 140, 26, 0.55)) drop-shadow(0 0 60px rgba(255, 60, 0, 0.35)) drop-shadow(0 0 100px rgba(255, 60, 0, 0.15));
+        drop-shadow(0 0 25px rgba(255, 140, 26, 0.55))
+        drop-shadow(0 0 60px rgba(255, 60, 0, 0.35))
+        drop-shadow(0 0 100px rgba(255, 60, 0, 0.15));
 
       animation: logoPop 1.4s ease-out both;
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 640px;
       margin: 0 auto;
       font-size: 1.1rem;
     }
 
-    /* SERVICES */
+    @keyframes logoPop {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-glass {
+        padding: 40px 24px;
+      }
+    }
+
+    /* =========================
+       SERVICES
+       ========================= */
     .services {
-      background-color: var(--panel);
+      background-color: #0b0b0b;
     }
 
     .grid {
@@ -107,7 +147,9 @@
       color: var(--accent);
     }
 
-    /* WHY */
+    /* =========================
+       WHY US
+       ========================= */
     .why ul {
       max-width: 800px;
       padding-left: 20px;
@@ -118,9 +160,11 @@
       margin-bottom: 10px;
     }
 
-    /* CONTACT */
+    /* =========================
+       CONTACT
+       ========================= */
     .contact {
-      background-color: var(--panel);
+      background-color: #0b0b0b;
       text-align: center;
     }
 
@@ -140,33 +184,22 @@
       color: #000;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+       ========================= */
     footer {
       padding: 30px 20px;
       text-align: center;
       font-size: 0.9rem;
       color: #999;
     }
-
-    @keyframes logoPop {
-      from {
-        opacity: 0;
-        transform: translateY(12px) scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
   </style>
 </head>
-
 <body>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
+    <div class="hero-glass">
       <img src="assets/logo.png" alt="Keystone Backflow Services Logo" />
       <p>
         Certified backflow testing and compliance services protecting
@@ -184,16 +217,16 @@
         <div class="card">
           <h3>Backflow Testing</h3>
           <p>
-            Annual and initial backflow prevention device testing
-            performed by certified professionals.
+            Annual and initial testing of backflow prevention devices
+            performed by certified technicians.
           </p>
         </div>
 
         <div class="card">
           <h3>Repairs & Maintenance</h3>
           <p>
-            Diagnosis, repair, and maintenance of backflow assemblies
-            to meet local water authority requirements.
+            Diagnosis and repair of backflow assemblies to ensure
+            continued compliance with local regulations.
           </p>
         </div>
 
@@ -201,7 +234,7 @@
           <h3>Compliance Reporting</h3>
           <p>
             Accurate documentation and submission of test results
-            to municipalities and water districts.
+            to municipalities and water authorities.
           </p>
         </div>
       </div>
@@ -214,8 +247,8 @@
       <h2>Why Keystone Backflow Services</h2>
       <ul>
         <li>Certified and insured backflow technicians</li>
-        <li>Prompt scheduling and reliable service</li>
-        <li>Clear communication and compliance support</li>
+        <li>Prompt scheduling and dependable service</li>
+        <li>Clear communication and compliance guidance</li>
         <li>Focused on safety, accuracy, and accountability</li>
       </ul>
     </div>
@@ -226,7 +259,7 @@
     <div class="container">
       <h2>Schedule Service</h2>
       <p>
-        Contact us to schedule backflow testing or to discuss
+        Contact us today to schedule backflow testing or discuss
         your compliance requirements.
       </p>
 
@@ -247,5 +280,4 @@
   </script>
 
 </body>
-
 </html>
