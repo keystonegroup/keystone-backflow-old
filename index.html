@@ -27,9 +27,16 @@
       line-height: 1.6;
     }
 
-    section { padding: 80px 20px; }
+    section {
+      padding: 80px 20px;
+    }
 
-    h2 { margin-top: 0; }
+    h1, h2, h3 {
+      margin-top: 0;
+      letter-spacing: 0.5px;
+    }
+
+    h2 { margin-bottom: 30px; }
 
     p { color: var(--muted); }
 
@@ -73,204 +80,16 @@
         drop-shadow(0 0 100px rgba(255, 60, 0, 0.15));
     }
 
-    /* ================= CONTACT ================= */
-    .contact {
+    /* ================= SERVICES ================= */
+    .services {
       background-color: #0b0b0b;
-      display: flex;
-      justify-content: center;
     }
 
-    .contact-glass {
-      max-width: 620px;
-      width: 92%;
-      padding: 50px 40px;
-      border-radius: 18px;
-      background: var(--panel);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow:
-        0 0 50px rgba(255, 140, 26, 0.2),
-        0 0 100px rgba(255, 60, 0, 0.12);
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    form { text-align: left; }
-
-    .field { margin-bottom: 20px; }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 6px;
-      border: 1px solid #333;
-      background-color: #111;
-      color: #fff;
-      font-family: inherit;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-
-    button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      background-color: var(--accent);
-      color: #000;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #ffa347;
-    }
-
-    /* ===== THANK YOU ===== */
-    .thank-you {
-      display: none;
-      text-align: center;
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-
-    .thank-you h3 {
-      color: var(--accent);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      .hero-glass,
-      .contact-glass {
-        padding: 40px 24px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-glass">
-      <img src="assets/logo.png" alt="Keystone Backflow Services Logo" />
-      <p>
-        Certified backflow testing and compliance services protecting
-        potable water systems for commercial and residential properties.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT FORM -->
-  <section class="contact">
-    <div class="contact-glass">
-
-      <h2>Schedule Service</h2>
-      <p>Send us a message and we’ll get back to you promptly.</p>
-
-      <form
-        id="contact-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-      >
-        <div class="field">
-          <label for="name">Name *</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-
-        <div class="field">
-          <label for="phone">Phone *</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-            maxlength="14"
-            placeholder="(555) 555-5555"
-          />
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="_replyto" />
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5"></textarea>
-        </div>
-
-        <button type="submit">Send Message</button>
-      </form>
-
-      <div class="thank-you" id="thank-you">
-        <h3>Thank you!</h3>
-        <p>Your message has been received. We’ll be in touch shortly.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <script>
-    const phoneInput = document.getElementById("phone");
-    const form = document.getElementById("contact-form");
-    const thankYou = document.getElementById("thank-you");
-
-    // Format phone as (XXX) XXX-XXXX
-    phoneInput.addEventListener("input", () => {
-      let digits = phoneInput.value.replace(/\D/g, "").substring(0, 10);
-      let formatted = digits;
-
-      if (digits.length > 6) {
-        formatted = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
-      } else if (digits.length > 3) {
-        formatted = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
-      } else if (digits.length > 0) {
-        formatted = `(${digits}`;
-      }
-
-      phoneInput.value = formatted;
-    });
-
-    // Submit + validate
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const digits = phoneInput.value.replace(/\D/g, "");
-      if (digits.length !== 10) {
-        alert("Please enter a valid 10-digit phone number.");
-        phoneInput.focus();
-        return;
-      }
-
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
-      });
-
-      if (response.ok) {
-        form.style.display = "none";
-        thankYou.style.display = "block";
-        form.reset();
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    });
-  </script>
-
-</body>
-</html>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
