@@ -17,7 +17,9 @@
       --muted: #cfcfcf;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -27,9 +29,31 @@
       line-height: 1.6;
     }
 
-    section { padding: 80px 20px; }
+    section {
+      padding: 80px 20px;
+    }
 
-    /* ================= HERO ================= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       HERO
+       ========================= */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -51,19 +75,20 @@
       border-radius: 18px;
       max-width: 720px;
       width: 92%;
+
       background: var(--panel);
 
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
 
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
 
       box-shadow:
         0 0 60px rgba(255, 140, 26, 0.25),
         0 0 120px rgba(255, 60, 0, 0.15);
     }
 
-    .hero svg {
+    .hero img {
       max-width: 500px;
       width: 92%;
       margin-bottom: 40px;
@@ -72,80 +97,150 @@
         drop-shadow(0 0 25px rgba(255, 140, 26, 0.55))
         drop-shadow(0 0 60px rgba(255, 60, 0, 0.35))
         drop-shadow(0 0 100px rgba(255, 60, 0, 0.15));
-
-      animation: logoPop 1.4s ease-out both;
     }
 
     .hero p {
       max-width: 640px;
       margin: 0 auto;
-      color: var(--muted);
       font-size: 1.1rem;
     }
 
-    @keyframes logoPop {
-      from {
-        opacity: 0;
-        transform: translateY(12px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    /* ============ NEEDLE ANIMATION ============ */
-    /* IMPORTANT:
-       This assumes the needle element in your SVG
-       has id="needle"
-    */
-
-    #needle {
-      transform-box: fill-box;
-      transform-origin: 50% 90%;
-      animation: needleSweep 0.9s ease-out 0.6s forwards;
-    }
-
-    @keyframes needleSweep {
-      from {
-        transform: rotate(-35deg);
-      }
-      to {
-        transform: rotate(0deg);
-      }
-    }
-
     @media (max-width: 600px) {
-      .hero-glass { padding: 40px 24px; }
+      .hero-glass {
+        padding: 40px 24px;
+      }
+    }
+
+    /* =========================
+       SERVICES
+       ========================= */
+    .services {
+      background-color: #0b0b0b;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 6px;
+    }
+
+    .card h3 {
+      color: var(--accent);
+    }
+
+    /* =========================
+       WHY US
+       ========================= */
+    .why ul {
+      max-width: 800px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .why li {
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       CONTACT
+       ========================= */
+    .contact {
+      background-color: #0b0b0b;
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 30px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      background-color: var(--accent);
+      color: #000;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
     }
   </style>
 </head>
 <body>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-glass">
-
-      <!-- Inline SVG required for animation -->
-      <!-- Paste the contents of logo.svg below -->
-      <!-- IMPORTANT: needle element must have id="needle" -->
-
-      <!-- ⬇️ REPLACE THIS COMMENT WITH YOUR SVG MARKUP ⬇️ -->
-
-      <!-- Example:
-      <svg ...>
-        ...
-        <path id="needle" d="..." />
-        ...
-      </svg>
-      -->
-
+      <img src="assets/logo.png" alt="Keystone Backflow Services Logo" />
       <p>
         Certified backflow testing and compliance services protecting
         potable water systems for commercial and residential properties.
       </p>
-
     </div>
   </section>
 
-</body>
-</html>
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Backflow Testing</h3>
+          <p>
+            Annual and initial testing of backflow prevention devices
+            performed by certified technicians.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Repairs & Maintenance</h3>
+          <p>
+            Diagnosis and repair of backflow assemblies to ensure
+            continued compliance with local regulations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Compliance Reporting</h3>
+          <p>
+            Accurate documentation and submission of test results
+            to municipalities and water authorities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="container">
+      <h2>Why Keystone Backflow Services</h2>
+      <ul>
+        <li>Certified and insured backflow technicians</li>
+        <li>Prompt scheduling and dependable service</li>
+        <li>Clear communication and compliance guidance</li>
+        <li>Focused on safety, accuracy, and accountability</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="contai
