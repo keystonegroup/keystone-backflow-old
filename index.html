@@ -164,6 +164,27 @@
       border-color: var(--accent);
     }
 
+    /* ===== CONSENT ===== */
+    .consent label {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+
+    .consent input {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+
+    .consent a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .consent a:hover {
+      text-decoration: underline;
+    }
+
     button {
       width: 100%;
       margin-top: 10px;
@@ -204,6 +225,15 @@
       color: #999;
     }
 
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 600px) {
       .hero-glass,
       .contact-glass {
@@ -212,6 +242,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -246,7 +277,7 @@
     </div>
   </section>
 
-  <!-- WHY US -->
+  <!-- WHY -->
   <section class="why">
     <div class="container">
       <h2>Why Keystone Backflow Services</h2>
@@ -262,14 +293,14 @@
   <!-- CONTACT -->
   <section class="contact">
     <div class="contact-glass">
+
       <h2>Schedule Service</h2>
       <p>Send us a message and we’ll get back to you promptly.</p>
 
-      <form
-        id="contact-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-      >
+      <form id="contact-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST">
+
         <div class="field">
           <label>Name *</label>
           <input type="text" name="name" required />
@@ -277,14 +308,12 @@
 
         <div class="field">
           <label>Phone *</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-            maxlength="14"
-            placeholder="(555) 555-5555"
-          />
+          <input type="tel"
+                 id="phone"
+                 name="phone"
+                 required
+                 maxlength="14"
+                 placeholder="(555) 555-5555" />
         </div>
 
         <div class="field">
@@ -297,6 +326,18 @@
           <textarea name="message" rows="5"></textarea>
         </div>
 
+        <div class="field consent">
+          <label>
+            <input type="checkbox" id="consent" required />
+            I agree to receive SMS or phone communications regarding my inquiry.
+            Message frequency may vary. Message and data rates may apply.
+            Reply <strong>STOP</strong> to opt out.
+            <br />
+            <a href="privacy.html" target="_blank">Privacy Policy</a> ·
+            <a href="sms-terms.html" target="_blank">SMS Terms & Conditions</a>
+          </label>
+        </div>
+
         <button type="submit">Send Message</button>
       </form>
 
@@ -304,12 +345,15 @@
         <h3>Thank you!</h3>
         <p>Your message has been received. We’ll be in touch shortly.</p>
       </div>
+
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    © <span id="year"></span> Keystone Backflow Services
+    © <span id="year"></span> Keystone Backflow Services ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="sms-terms.html">SMS Terms & Conditions</a>
   </footer>
 
   <script>
@@ -318,6 +362,7 @@
     const phone = document.getElementById("phone");
     const form = document.getElementById("contact-form");
     const thankYou = document.getElementById("thank-you");
+    const consent = document.getElementById("consent");
 
     phone.addEventListener("input", () => {
       let d = phone.value.replace(/\D/g, "").slice(0, 10);
@@ -329,8 +374,14 @@
 
     form.addEventListener("submit", async e => {
       e.preventDefault();
-      if (phone.value.replace(/\D/g,"").length !== 10) {
+
+      if (phone.value.replace(/\D/g, "").length !== 10) {
         alert("Please enter a valid 10-digit phone number.");
+        return;
+      }
+
+      if (!consent.checked) {
+        alert("Please provide consent to receive SMS or phone communications.");
         return;
       }
 
