@@ -31,12 +31,7 @@
       padding: 80px 20px;
     }
 
-    h1, h2, h3 {
-      margin-top: 0;
-      letter-spacing: 0.5px;
-    }
-
-    h2 { margin-bottom: 24px; }
+    h2 { margin-bottom: 30px; }
 
     p { color: var(--muted); }
 
@@ -57,7 +52,7 @@
     }
 
     .hero-glass {
-      padding: 60px 48px;
+      padding: 60px 40px;
       border-radius: 18px;
       max-width: 720px;
       width: 92%;
@@ -73,21 +68,15 @@
     .hero img {
       max-width: 500px;
       width: 92%;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       filter:
         drop-shadow(0 0 25px rgba(255, 140, 26, 0.55))
         drop-shadow(0 0 60px rgba(255, 60, 0, 0.35))
         drop-shadow(0 0 100px rgba(255, 60, 0, 0.15));
     }
 
-    .hero p {
-      font-size: 1.05rem;
-    }
-
     /* ================= SERVICES ================= */
-    .services {
-      background-color: #0b0b0b;
-    }
+    .services { background-color: #0b0b0b; }
 
     .container {
       max-width: 1100px;
@@ -106,9 +95,7 @@
       border-radius: 6px;
     }
 
-    .card h3 {
-      color: var(--accent);
-    }
+    .card h3 { color: var(--accent); }
 
     /* ================= WHY ================= */
     .why ul {
@@ -117,9 +104,7 @@
       color: var(--muted);
     }
 
-    .why li {
-      margin-bottom: 10px;
-    }
+    .why li { margin-bottom: 10px; }
 
     /* ================= CONTACT ================= */
     .contact {
@@ -144,7 +129,7 @@
 
     form { text-align: left; }
 
-    .field { margin-bottom: 22px; }
+    .field { margin-bottom: 20px; }
 
     label {
       display: block;
@@ -155,13 +140,12 @@
 
     input, textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: 6px;
       border: 1px solid #333;
       background-color: #111;
       color: #fff;
       font-family: inherit;
-      font-size: 1rem;
     }
 
     input:focus, textarea:focus {
@@ -171,7 +155,7 @@
 
     .consent label {
       font-size: 0.85rem;
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     .consent input {
@@ -184,40 +168,20 @@
       text-decoration: none;
     }
 
-    .consent a:hover {
-      text-decoration: underline;
-    }
-
     button {
       width: 100%;
-      margin-top: 12px;
-      padding: 16px;
+      padding: 14px;
       border: none;
       border-radius: 6px;
       background-color: var(--accent);
       color: #000;
-      font-size: 1.05rem;
       font-weight: bold;
       cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #ffa347;
     }
 
     .thank-you {
       display: none;
       text-align: center;
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-
-    .thank-you h3 {
-      color: var(--accent);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ================= FOOTER ================= */
@@ -233,44 +197,27 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    /* ================= CALL BUTTON ================= */
+    .call-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background-color: var(--accent);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow:
+        0 6px 20px rgba(0,0,0,0.4),
+        0 0 25px rgba(255,140,26,0.45);
     }
 
-    /* ================= MOBILE ================= */
-    @media (max-width: 768px) {
-      section {
-        padding: 64px 16px;
-      }
-
-      .hero {
-        min-height: 92vh;
-      }
-
-      .hero-glass {
-        padding: 40px 22px;
-      }
-
-      .hero img {
-        max-width: 360px;
-        margin-bottom: 28px;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .grid {
-        gap: 20px;
-      }
-
-      .card {
-        padding: 24px;
-      }
-
-      .contact-glass {
-        padding: 40px 22px;
-      }
+    .phone-icon {
+      margin-right: 8px;
+      font-size: 1.1em;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -325,9 +272,7 @@
   <!-- CONTACT -->
   <section class="contact">
     <div class="contact-glass">
-
       <h2>Schedule Service</h2>
-      <p>Send us a message and we’ll get back to you promptly.</p>
 
       <form id="contact-form"
             action="https://formspree.io/f/YOUR_FORM_ID"
@@ -340,12 +285,7 @@
 
         <div class="field">
           <label>Phone *</label>
-          <input type="tel"
-                 id="phone"
-                 name="phone"
-                 required
-                 maxlength="14"
-                 placeholder="(555) 555-5555" />
+          <input type="tel" id="phone" name="phone" required />
         </div>
 
         <div class="field">
@@ -361,12 +301,9 @@
         <div class="field consent">
           <label>
             <input type="checkbox" id="consent" required />
-            I agree to receive SMS or phone communications regarding my inquiry.
-            Message frequency may vary. Message and data rates may apply.
-            Reply <strong>STOP</strong> to opt out.
-            <br />
-            <a href="privacy.html" target="_blank">Privacy Policy</a> ·
-            <a href="sms-terms.html" target="_blank">SMS Terms & Conditions</a>
+            I agree to receive SMS or phone communications.
+            <a href="privacy.html">Privacy Policy</a> ·
+            <a href="sms-terms.html">SMS Terms</a>
           </label>
         </div>
 
@@ -375,9 +312,8 @@
 
       <div class="thank-you" id="thank-you">
         <h3>Thank you!</h3>
-        <p>Your message has been received. We’ll be in touch shortly.</p>
+        <p>We’ll be in touch shortly.</p>
       </div>
-
     </div>
   </section>
 
@@ -385,8 +321,13 @@
   <footer>
     © <span id="year"></span> Keystone Backflow Services ·
     <a href="privacy.html">Privacy Policy</a> ·
-    <a href="sms-terms.html">SMS Terms & Conditions</a>
+    <a href="sms-terms.html">SMS Terms</a>
   </footer>
+
+  <!-- CALL BUTTON -->
+  <a href="tel:+15555555555" class="call-button">
+    <span class="phone-icon">📞</span> Call Now
+  </a>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -408,12 +349,12 @@
       e.preventDefault();
 
       if (phone.value.replace(/\D/g, "").length !== 10) {
-        alert("Please enter a valid 10-digit phone number.");
+        alert("Please enter a valid phone number.");
         return;
       }
 
       if (!consent.checked) {
-        alert("Please provide consent to receive SMS or phone communications.");
+        alert("Please provide consent.");
         return;
       }
 
