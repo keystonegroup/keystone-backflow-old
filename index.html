@@ -36,7 +36,7 @@
       letter-spacing: 0.5px;
     }
 
-    h2 { margin-bottom: 30px; }
+    h2 { margin-bottom: 24px; }
 
     p { color: var(--muted); }
 
@@ -57,7 +57,7 @@
     }
 
     .hero-glass {
-      padding: 60px 40px;
+      padding: 60px 48px;
       border-radius: 18px;
       max-width: 720px;
       width: 92%;
@@ -73,11 +73,15 @@
     .hero img {
       max-width: 500px;
       width: 92%;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       filter:
         drop-shadow(0 0 25px rgba(255, 140, 26, 0.55))
         drop-shadow(0 0 60px rgba(255, 60, 0, 0.35))
         drop-shadow(0 0 100px rgba(255, 60, 0, 0.15));
+    }
+
+    .hero p {
+      font-size: 1.05rem;
     }
 
     /* ================= SERVICES ================= */
@@ -140,7 +144,7 @@
 
     form { text-align: left; }
 
-    .field { margin-bottom: 20px; }
+    .field { margin-bottom: 22px; }
 
     label {
       display: block;
@@ -151,12 +155,13 @@
 
     input, textarea {
       width: 100%;
-      padding: 12px 14px;
+      padding: 14px 16px;
       border-radius: 6px;
       border: 1px solid #333;
       background-color: #111;
       color: #fff;
       font-family: inherit;
+      font-size: 1rem;
     }
 
     input:focus, textarea:focus {
@@ -164,11 +169,9 @@
       border-color: var(--accent);
     }
 
-    /* ===== CONSENT ===== */
     .consent label {
       font-size: 0.85rem;
-      line-height: 1.4;
-      color: var(--muted);
+      line-height: 1.45;
     }
 
     .consent input {
@@ -187,13 +190,13 @@
 
     button {
       width: 100%;
-      margin-top: 10px;
-      padding: 14px;
+      margin-top: 12px;
+      padding: 16px;
       border: none;
       border-radius: 6px;
       background-color: var(--accent);
       color: #000;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: bold;
       cursor: pointer;
     }
@@ -234,10 +237,39 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 600px) {
-      .hero-glass,
+    /* ================= MOBILE ================= */
+    @media (max-width: 768px) {
+      section {
+        padding: 64px 16px;
+      }
+
+      .hero {
+        min-height: 92vh;
+      }
+
+      .hero-glass {
+        padding: 40px 22px;
+      }
+
+      .hero img {
+        max-width: 360px;
+        margin-bottom: 28px;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .grid {
+        gap: 20px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
       .contact-glass {
-        padding: 40px 24px;
+        padding: 40px 22px;
       }
     }
   </style>
@@ -323,7 +355,7 @@
 
         <div class="field">
           <label>Message</label>
-          <textarea name="message" rows="5"></textarea>
+          <textarea name="message" rows="4"></textarea>
         </div>
 
         <div class="field consent">
